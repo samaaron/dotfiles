@@ -100,3 +100,5 @@ function chpwd() {
 
 rvm use ruby-1.8.7 > /dev/null
 
+##https://github.com/defunkt/hub
+function git(){hub "$@"}
