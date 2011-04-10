@@ -1,0 +1,9 @@
+# Global Git Ignore File.
+# ----------------------
+#
+# Add to gitsetup with:
+# $> git config --global core.excludesfile ~/.gitignore
+
+*.elc
+\#*#
+\.\#*
