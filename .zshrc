@@ -1,5 +1,5 @@
 #set the path
-export PATH=/Users/sam/.rvm/bin:/usr/local/git/bin:/Users/sam/bin:/usr/local/bin:$PATH:/bin:/usr/local/Cellar/python/2.7.1/bin/:/Users/sam/.gem/ruby/1.8/bin:/usr/local/mysql/bin
+export PATH=/Users/sam/.rvm/bin:/usr/local/git/bin:/Users/sam/bin:/usr/local/bin:$PATH:/bin:/usr/local/Cellar/python/2.7.1/bin/:/Users/sam/.gem/ruby/1.8/bin:/usr/local/mysql/bin:/usr/local/sbin
 
 #enforce ack from /usr/local/bin
 alias ack="/usr/local/bin/ack"
