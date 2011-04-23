@@ -39,14 +39,17 @@ bindkey ' ' magic-space
 #set emacs the shell editor
 export EDITOR='emacsclient -ct'
 
-export EMACS='/usr/local/bin/emacsclient -ct'
+export EMACS='/usr/local/bin/emacs'
+
+source ~/.dotfiles/gitstatus/gitstatus.zsh
+
 
 #make the prompt pretty-pretty
 autoload -U colors && colors
 setopt prompt_subst
 setopt notransient_rprompt
 export PS1=$'
-%{\e[0;34m%}∴ %d%{\e[0m%}
+%{\e[0;34m%}∴ $(prompt_git_info)%{\e[0;34m%}%d%{\e[0m%}
 %Bλ '
 
 preexec () {
@@ -102,3 +105,4 @@ rvm use ruby-1.8.7 > /dev/null
 
 ##https://github.com/defunkt/hub
 function git(){hub "$@"}
+
