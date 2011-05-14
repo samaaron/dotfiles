@@ -2,7 +2,7 @@
 # -*- coding: UTF-8 -*-
 
 # change those symbols to whatever you prefer
-symbols = {'ahead of': '↑', 'behind': '↓', 'staged':'♦', 'changed':'‣', 'untracked':'…', 'clean':'⚡', 'unmerged':'≠', 'sha1':':'}
+symbols = {'ahead of': '↑', 'behind': '↓', 'staged':'♦', 'changed':'‣', 'untracked':'…', 'clean':'✔', 'unmerged':'≠', 'sha1':':', 'modified':'!'}
 
 from subprocess import Popen, PIPE
 
@@ -22,6 +22,7 @@ staged = re.compile(r'^# Changes to be committed:$', re.MULTILINE)
 changed = re.compile(r'^# Changed but not updated:$', re.MULTILINE)
 untracked = re.compile(r'^# Untracked files:$', re.MULTILINE)
 unmerged = re.compile(r'^# Unmerged paths:$', re.MULTILINE)
+modified = re.compile(r'^# Changes not staged for commit:$', re.MULTILINE)
 
 def execute(*command):
 	out, err = Popen(stdout=PIPE, stderr=PIPE, *command).communicate()
@@ -44,6 +45,8 @@ if untracked.search(output):
 ## 		nb = len(Popen(['git','ls-files','--others','--exclude-standard'],stdout=PIPE).communicate()[0].splitlines())
 ## 		status += "%s" % (symbols['untracked']*(nb//3 + 1), )
 	status += symbols['untracked']
+if modified.search(output):
+        status += symbols['modified']
 if status == '':
 	status = symbols['clean']
 
@@ -63,5 +66,6 @@ else:
 		div_match = diverge_re.match(lines[2])
 	 	if div_match:
 			remote = "{behind}{1}{ahead of}{0}".format(*div_match.groups(), **symbols)
+
 
 print '\n'.join([branch,remote,status])
