@@ -1,5 +1,5 @@
 #set the path
-export PATH=/Users/sam/.rvm/bin:/usr/local/git/bin:/Users/sam/bin:/usr/local/bin:$PATH:/bin:/usr/local/Cellar/python/2.7.1/bin/:/Users/sam/.gem/ruby/1.8/bin:/usr/local/mysql/bin:/usr/local/sbin
+export PATH=/usr/local/Cellar/ruby/1.9.2-p180/bin:/Users/sam/.rvm/bin:/usr/local/git/bin:/Users/sam/bin:/usr/local/bin:$PATH:/bin:/usr/local/Cellar/python/2.7.1/bin/:/Users/sam/.gem/ruby/1.8/bin:/usr/local/mysql/bin:/usr/local/sbin
 
 #enforce ack from /usr/local/bin
 alias ack="/usr/local/bin/ack"
@@ -66,7 +66,6 @@ setopt correct
 # allows the command stop to be used to stop jobs similar to C shells
 alias stop='kill -TSTP'
 
-
 #add Ctrl-w capabilities (kill region for later yanking)
 bindkey '\C-x' kill-region
 
@@ -78,30 +77,10 @@ bindkey '\eq' push-line-or-edit
 
 setopt promptsubst
 
-if [[ -s /Users/sam/.rvm/scripts/rvm ]] ; then source /Users/sam/.rvm/scripts/rvm ; fi
+#if [[ -s /Users/sam/.rvm/scripts/rvm ]] ; then source /Users/sam/.rvm/scripts/rvm ; fi
 
 Dirstacksize=32
 DIRSTACKFILE="${HOME}"/.zdirs
-
-autoload -U is-at-least
-# Keep dirstack across logouts
-if [[ -f ${DIRSTACKFILE} ]] && [[ ${#dirstack[*]} -eq 0 ]] ; then
-    dirstack=( ${(uf)"$(< $DIRSTACKFILE)"} )
-fi
-
-# Make sure there are no duplicates
-typeset -U dirstack
-
-# Share dirstack between multiple zsh instances
-function chpwd() {
-    if is-at-least 4.1; then # dirs -p needs 4.1
-        # Get the dirstack from the file and add it to the current dirstack
-        dirstack=( ${(uf)"$(< $DIRSTACKFILE)"} )
-        dirs -pl |sort -u >! ${DIRSTACKFILE}
-    fi
-}
-
-rvm use ruby-1.8.7 > /dev/null
 
 ##https://github.com/defunkt/hub
 function git(){hub "$@"}
