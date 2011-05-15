@@ -1,0 +1,17 @@
+/* Store in:
+   ~/Library/KeyBindings/DefaultKeyBinding.dict
+
+  See: http://www.hcs.harvard.edu/~jrus/Site/System%20Bindings.html */
+{
+        "~f"="moveWordForward:";
+        "~b"="moveWordBackward:";
+        "~<"="moveToBeginningOfDocument:";
+        "~>"="moveToEndOfDocument:";
+        "~v"="pageUp:";
+        "~d"="deleteWordForward:";
+        "^w"="deleteWordBackward:";
+        "~d"="deleteWordForward:";
+        "^!"="deleteWordForward:";
+        /* Escape should really be complete. */
+        "\033"="complete:"; /* Escape */
+}
