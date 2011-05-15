@@ -9,7 +9,6 @@ export LSCOLORS=gxfxcxdxbxegedabagacad
 alias ls='ls -G'
 alias l="ls -lh"
 
-
 alias emacs="emacsclient -ct"
 alias de="/usr/local/bin/emacs --daemon && dvtm"
 
@@ -84,4 +83,3 @@ DIRSTACKFILE="${HOME}"/.zdirs
 
 ##https://github.com/defunkt/hub
 function git(){hub "$@"}
-
