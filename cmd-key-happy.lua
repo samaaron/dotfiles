@@ -38,8 +38,9 @@ global_excludes = Set{ "shift-cmd-tab",
 -- have to use "alt-w" to close a terminal window.
 
 apps = {
-   iTerm = { exclude = {}
-                         } }
+   iTerm   = { exclude = {} },
+   Emacs   = { exclude = {} },
+   Cathode = { exclude = {} }}
 
 -- Return true to swap cmd/alt, otherwise false.
 
