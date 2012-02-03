@@ -12,6 +12,4 @@
         "^w"="deleteWordBackward:";
         "~d"="deleteWordForward:";
         "^!"="deleteWordForward:";
-        /* Escape should really be complete. */
-        "\033"="complete:"; /* Escape */
 }
