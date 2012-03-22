@@ -1,0 +1,37 @@
+[user]
+        name = Sam Aaron
+        email = samaaron@gmail.com
+[alias]
+        switch = checkout
+        c = checkout
+        b = branch
+        s = status
+        c = commit
+[color]
+        branch = auto
+        diff = auto
+        status = auto
+        interactive = auto
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+[color "status"]
+  added = green
+  changed = cyan
+  untracked = red
+[gc]
+        auto = 1
+[github]
+        user = samaaron
+        token = ADD TOKEN HERE
+[push]
+  default = current
+[core]
+        editor = emacsclient -ct
+        excludesfile = /Users/sam/.gitignore
