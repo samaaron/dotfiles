@@ -1,5 +1,8 @@
+export CLOJURESCRIPT_HOME="/Users/sam/Development/cljs/clojurescript"
+export NODE_PATH="/usr/local/lib/node_modules"
+
 #set the path
-export PATH=/usr/local/Cellar/ruby/1.9.2-p180/bin:/Users/sam/.rvm/bin:/usr/local/git/bin:/Users/sam/bin:/usr/local/bin:$PATH:/bin:/usr/local/Cellar/python/2.7.1/bin/:/Users/sam/.gem/ruby/1.8/bin:/usr/local/mysql/bin:/usr/local/sbin
+export PATH=/Users/sam/bin:/Users/sam/.rvm/bin:/usr/local/git/bin:/usr/local/bin:/opt/local/bin:$PATH:/bin:/usr/local/Cellar/python/2.7.1/bin/:/Users/sam/.gem/ruby/1.8/bin:/usr/local/mysql/bin:/usr/local/sbin:/Applications/SuperCollider:$CLOJURESCRIPT_HOME/bin:/Users/sam/.cabal/bin
 
 #enforce ack from /usr/local/bin
 alias ack="/usr/local/bin/ack"
@@ -9,8 +12,11 @@ export LSCOLORS=gxfxcxdxbxegedabagacad
 alias ls='ls -G'
 alias l="ls -lh"
 
-alias emacs="emacsclient -ct"
-alias de="/usr/local/bin/emacs --daemon && dvtm"
+alias emacs="/usr/local/bin/emacsclient -ct"
+alias es="/usr/local/bin/emacs --daemon"
+
+## cd to the directory of the current emacs buffer
+alias em='cd $(emacsclient -e "(with-current-buffer (window-buffer (frame-selected-window)) default-directory)" | '"sed -E 's/(^\")|(\"$)//g')"
 
 #enable completion system
 autoload -U compinit
@@ -28,7 +34,6 @@ setopt EXTENDED_HISTORY         # puts timestamps in the history
 setopt HIST_VERIFY              # when using ! cmds, confirm first
 setopt HIST_IGNORE_DUPS         # ignore same commands run twice
 setopt APPEND_HISTORY           # don't overwrite history
-setopt SHARE_HISTORY            # _all_ zsh sessions share the same history files
 setopt INC_APPEND_HISTORY       # write after each command
 
 setopt autopushd
@@ -41,7 +46,6 @@ export EDITOR='emacsclient -ct'
 export EMACS='/usr/local/bin/emacs'
 
 source ~/.dotfiles/gitstatus/gitstatus.zsh
-
 
 #make the prompt pretty-pretty
 autoload -U colors && colors
@@ -66,7 +70,7 @@ setopt correct
 alias stop='kill -TSTP'
 
 #add Ctrl-w capabilities (kill region for later yanking)
-bindkey '\C-x' kill-region
+bindkey '\C-]' kill-region
 
 #enable bash style backward-kill-word
 bindkey '\C-w' vi-backward-kill-word
@@ -76,10 +80,8 @@ bindkey '\eq' push-line-or-edit
 
 setopt promptsubst
 
-#if [[ -s /Users/sam/.rvm/scripts/rvm ]] ; then source /Users/sam/.rvm/scripts/rvm ; fi
-
-Dirstacksize=32
-DIRSTACKFILE="${HOME}"/.zdirs
-
 ##https://github.com/defunkt/hub
 function git(){hub "$@"}
+
+## RVM
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
