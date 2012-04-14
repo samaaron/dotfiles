@@ -6,6 +6,7 @@ mkdir -p ~/bin
 
 echo "Creating symbolic links for config files"
 ln -s ~/.dotfiles/gitconfig ~/.gitconfig
+ln -s ~/.dotofiles/gitignore .gitignore
 ln -s ~/.dotfiles/zshrc ~/.zshrc
 ln -s ~/.dotfiles/cmd-key-happy.lua ~/.cmd-key-happy.lua
 ln -s ~/.dotfiles/tmux.conf ~/.tmux.conf
@@ -15,7 +16,8 @@ mkdir -p ~/Library/KeyBindings
 cp ~/.dotfiles/DefaultKeyBinding.dict ~/Library/KeyBindings/DefaultKeyBinding.dict
 
 echo "Installing useful brews:"
-brew install ack git hub tig tmux tree
+brew brew install ack git hub tig tmux tree xmlformat
+brew install aspell --lang=uk
 
 echo "Now quit iTerm2 and copy ~/.dotfiles/com.googlecode.iterm2.plist into ~/Library/Preferences then relaunch."
 echo ""

@@ -35,7 +35,7 @@ setopt HIST_VERIFY              # when using ! cmds, confirm first
 setopt HIST_IGNORE_DUPS         # ignore same commands run twice
 setopt APPEND_HISTORY           # don't overwrite history
 setopt INC_APPEND_HISTORY       # write after each command
-
+setopt extended_glob
 setopt autopushd
 
 bindkey ' ' magic-space
