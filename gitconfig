@@ -1,6 +1,6 @@
 [user]
-        name = Sam Aaron
-        email = samaaron@gmail.com
+	name = Sam Aaron
+	email = samaaron@gmail.com
 [alias]
         switch = checkout
         c = checkout
