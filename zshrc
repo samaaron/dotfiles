@@ -2,16 +2,16 @@ export CLOJURESCRIPT_HOME="/Users/sam/Development/cljs/clojurescript"
 export NODE_PATH="/usr/local/lib/node_modules"
 
 #lovely java 1.7 home
-#export JAVA_HOME=$(/usr/libexec/java_home)
+export JAVA_HOME=$(/usr/libexec/java_home)
 
 #lovely java 1.6 home
 export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Home
 
 #set the path (With Java 1.6)
-export PATH=/System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Commands:/Applications/Octave.app/Contents/Resources/bin:/Applications/Postgres.app/Contents/MacOS/bin:/Users/sam/bin:/Users/sam/.rvm/bin:/usr/local/texlive/2011/bin/x86_64-darwin/:/usr/local/git/bin:/usr/local/bin:/opt/local/bin:$PATH:/bin:/usr/local/Cellar/python/2.7.1/bin/:/Users/sam/.gem/ruby/1.8/bin:/usr/local/mysql/bin:/usr/local/sbin:/Applications/SuperCollider:$CLOJURESCRIPT_HOME/bin:/Users/sam/.cabal/bin
+export PATH=/System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Commands:/Applications/Postgres.app/Contents/MacOS/bin:/Users/sam/bin:/Users/sam/.rvm/bin:/usr/local/texlive/2011/bin/x86_64-darwin:/usr/local/git/bin:/usr/local/bin:/opt/local/bin:$PATH:/bin:/usr/local/Cellar/python/2.7.1/bin:/Users/sam/.gem/ruby/1.8/bin:/usr/local/mysql/bin:/usr/local/sbin:/Applications/SuperCollider:$CLOJURESCRIPT_HOME/bin:/Users/sam/.cabal/bin
 
 #(with java 1.7)
-#export PATH=/Applications/Octave.app/Contents/Resources/bin:/Applications/Postgres.app/Contents/MacOS/bin:/Users/sam/bin:/Users/sam/.rvm/bin:/usr/local/texlive/2011/bin/x86_64-darwin/:/usr/local/git/bin:/usr/local/bin:/opt/local/bin:$PATH:/bin:/usr/local/Cellar/python/2.7.1/bin/:/Users/sam/.gem/ruby/1.8/bin:/usr/local/mysql/bin:/usr/local/sbin:/Applications/SuperCollider:$CLOJURESCRIPT_HOME/bin:/Users/sam/.cabal/bin
+#export PATH=/Applications/Postgres.app/Contents/MacOS/bin:/Users/sam/bin:/Users/sam/.rvm/bin:/usr/local/texlive/2011/bin/x86_64-darwin:/usr/local/git/bin:/usr/local/bin:/opt/local/bin:$PATH:/bin:/usr/local/Cellar/python/2.7.1/bin:/Users/sam/.gem/ruby/1.8/bin:/usr/local/mysql/bin:/usr/local/sbin:/Applications/SuperCollider:$CLOJURESCRIPT_HOME/bin:/Users/sam/.cabal/bin
 
 #enforce ack from /usr/local/bin
 alias ack="/usr/local/bin/ack"
@@ -72,10 +72,10 @@ setopt correct
 alias stop='kill -TSTP'
 
 #kill region for later yanking
-bindkey '\C-\\' kill-region
+bindkey '\C-\\' vi-backward-kill-word
 
 #enable bash style backward-kill-word
-bindkey '\C-]' vi-backward-kill-word
+bindkey '\C-]' kill-region
 
 # Upgrade Ctrl-q from just push-line to push-line-or-edit
 bindkey '\eq' push-line-or-edit
@@ -96,3 +96,5 @@ if [ "$INSIDE_EMACS" ]; then
   export EDITOR='emacsclient --no-wait'
   TERM=xterm-256color
 fi
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
